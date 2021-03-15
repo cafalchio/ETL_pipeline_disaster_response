@@ -27,7 +27,7 @@ def clean_data(df):
 def save_data(df, database_filename):
     try:
         engine = create_engine(f'sqlite:///{database_filename}.db')
-        df.to_sql(database_filename, engine, index=False)
+        df.to_sql('df', engine, index=False)
         print(f'Saved in {database_filename} database.')
         return True
     except:
@@ -38,7 +38,8 @@ def save_data(df, database_filename):
 def main():
     if len(sys.argv) == 4:
 
-        messages_filepath, categories_filepath, database_filepath = sys.argv[1:]
+        (messages_filepath, categories_filepath, database_filepath) = sys.argv[1:]
+        print(messages_filepath)
         
         print('Loading data...\n    MESSAGES: {}\n    CATEGORIES: {}'
               .format(messages_filepath, categories_filepath))
