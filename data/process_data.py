@@ -1,6 +1,9 @@
 import sys
+import re
 import pandas as pd
 from sqlalchemy import create_engine
+import nltk
+from nltk.corpus import stopwords
 
 def load_data(messages_filepath, categories_filepath):
     '''
@@ -17,12 +20,21 @@ def load_data(messages_filepath, categories_filepath):
     df = pd.concat( (df, categories), axis = 1)
     return df
 
-def clean_data(df):
-    ''' '''
-    
-    df = df.drop_duplicates()
-    return df
+def remove_stop_words(text):
+    '''
+    '''
+    text = [w for w in text if w not in set(stopwords.words("english"))]
+    return text
 
+def clean_data(df):
+    ''' 
+    '''
+    df = df.drop_duplicates()
+    df['message'] = df.message.apply(lambda x: re.sub(r"[^a-zA-Z0-9]", " ", x))
+    df['message'] = df['message'].apply(lambda x: x.lower())
+    df['message'] = df.message.apply(lambda x: nltk.word_tokenize(x))    
+    df['message'] = df.message.apply(remove_stop_words)
+    return df
 
 def save_data(df, database_filename):
     try:

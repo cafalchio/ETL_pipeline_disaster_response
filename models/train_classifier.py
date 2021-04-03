@@ -1,11 +1,15 @@
 import sys
-
+from sklearn.model_selection import train_test_split
+import nltk
+nltk.download('punkt')
+nltk.download('stopwords')
 
 def load_data(database_filepath):
     pass
 
 
 def tokenize(text):
+    
     pass
 
 
