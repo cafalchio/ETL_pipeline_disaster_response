@@ -1,37 +1,56 @@
 import json
 import plotly
 import pandas as pd
-
-from nltk.stem import WordNetLemmatizer
+import nltk
+from nltk.corpus import stopwords
+from nltk.stem import WordNetLemmatizer 
 from nltk.tokenize import word_tokenize
+nltk.download('punkt')
+nltk.download('stopwords')
 
 from flask import Flask
 from flask import render_template, request, jsonify
 from plotly.graph_objs import Bar
-from sklearn.externals import joblib
+import joblib
 from sqlalchemy import create_engine
 
 
 app = Flask(__name__)
 
 def tokenize(text):
+    '''
+    Process text for model
+
+    Applies tokenization, Lemmatization and remove stop words from text
+
+    Parameters:
+        text(str): text to be processed
+
+    Returns:
+        clean_tokens(list): processed text as a list of tokens
+
+    '''
     tokens = word_tokenize(text)
     lemmatizer = WordNetLemmatizer()
 
     clean_tokens = []
     for tok in tokens:
         clean_tok = lemmatizer.lemmatize(tok).lower().strip()
-        clean_tokens.append(clean_tok)
+        if tok not in set(stopwords.words("english")):
+            clean_tokens.append(clean_tok)
 
     return clean_tokens
 
 # load data
-engine = create_engine('sqlite:///../data/YourDatabaseName.db')
-df = pd.read_sql_table('YourTableName', engine)
+engine = create_engine('sqlite:///../data/disaster.db')
+df = pd.read_sql_table('df', engine)  
+
+# process text
+print('\nProcessing text ..')
+df['message'] = df.message.apply(tokenize)
 
 # load model
-model = joblib.load("../models/your_model_name.pkl")
-
+model = joblib.load("../models/model")
 
 # index webpage displays cool visuals and receives user input text for model
 @app.route('/')

@@ -2,12 +2,21 @@ import sys
 import re
 import pandas as pd
 from sqlalchemy import create_engine
-import nltk
-from nltk.corpus import stopwords
+
 
 def load_data(messages_filepath, categories_filepath):
-    '''
-    ''' 
+    """
+    Clean dataframe
+
+    Drop duplicates, remove non-characters ad lower text in message column
+
+    Parameters:
+    df (pandas dataframe): dataframe containing data 
+    
+    Returns:
+    df (pandas dataframe): processed dataframe
+
+    """
     categories = pd.read_csv(categories_filepath)
     messages = pd.read_csv(messages_filepath)
     df = messages.merge(categories)
@@ -20,20 +29,23 @@ def load_data(messages_filepath, categories_filepath):
     df = pd.concat( (df, categories), axis = 1)
     return df
 
-def remove_stop_words(text):
-    '''
-    '''
-    text = [w for w in text if w not in set(stopwords.words("english"))]
-    return text
 
 def clean_data(df):
-    ''' 
-    '''
+    """
+    Clean dataframe
+
+    Drop duplicates, remove non-characters ad lower text in message column
+
+    Parameters:
+    df (pandas dataframe): dataframe containing data 
+
+    Returns:
+    df (pandas dataframe): processed dataframe
+
+    """
     df = df.drop_duplicates()
     df['message'] = df.message.apply(lambda x: re.sub(r"[^a-zA-Z0-9]", " ", x))
     df['message'] = df['message'].apply(lambda x: x.lower())
-    df['message'] = df.message.apply(lambda x: nltk.word_tokenize(x))    
-    df['message'] = df.message.apply(remove_stop_words)
     return df
 
 def save_data(df, database_filename):
