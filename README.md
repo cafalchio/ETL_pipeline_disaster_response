@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # ETL_pipeline_disaster_response
 =======
 # Disaster Response Pipeline Project
@@ -14,5 +13,5 @@
 2. Run the following command in the app's directory to run your web app.
     `python run.py`
 
-3. Go to http://0.0.0.0:3001/
->>>>>>> 3e0abda02da3d7df3225c8daeea3ea4a17959f01
+3. Go to http://127.0.0.1:3001/
+
