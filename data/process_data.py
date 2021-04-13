@@ -24,6 +24,7 @@ def load_data(messages_filepath, categories_filepath):
     categories.columns = [n.split('-')[0] for n in categories.iloc[0:1].values[0]]
     for column in categories:
         categories[column] = categories[column].apply(lambda x: x.split('-')[1])
+        categories[column] = categories[column].apply(lambda x: 1 if x != '0' else 0)
     categories = categories.apply(pd.to_numeric)
     df.drop('categories' ,inplace=True, axis =1)
     df = pd.concat( (df, categories), axis = 1)
@@ -51,7 +52,7 @@ def clean_data(df):
 def save_data(df, database_filename):
     try:
         engine = create_engine(f'sqlite:///{database_filename}.db')
-        df.to_sql('df', engine, index=False)
+        df.to_sql('df', engine, index=False, if_exists='replace')
         print(f'Saved in {database_filename} database.')
         return True
     except:

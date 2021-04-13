@@ -1,5 +1,4 @@
 import sys
-import pickle
 import pandas as pd
 from sqlalchemy import create_engine
 from sklearn.model_selection import train_test_split
@@ -8,6 +7,7 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.ensemble import  RandomForestClassifier
 from sklearn.multioutput import MultiOutputClassifier
 from sklearn.pipeline import Pipeline
+from sklearn.model_selection import GridSearchCV
 import joblib
 
 import nltk
@@ -60,7 +60,7 @@ def load_data(database_filepath):
 
 def build_model():
     """
-    Returns the model
+    Build a model pipeline and perform grid search
     
     Parameters:
         None
@@ -72,7 +72,13 @@ def build_model():
     ('clf', MultiOutputClassifier(RandomForestClassifier(n_estimators=200, max_depth = 6)))
     ])
     
-    return pipeline
+    parameters = {
+        'vect__use_idf': [True, False]
+        }
+
+    cv = GridSearchCV(pipeline, parameters)
+
+    return cv
 
 def evaluate_model(model, X_test, Y_test, category_names):
     '''
