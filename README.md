@@ -1,21 +1,21 @@
 # Disaster Response Pipeline Project
-<<<<<<< Updated upstream
-This project 
+
+The idea of this pipeline + model is to classify emergency text into one of the 26 categories and display the result in a Flask web app.
 
 ### Motivation:
 This project was made as part of the Udacity course Data Science. The main motivation is learn ETL pipelines and NLP. 
 The Flask app deploy the model on a local server.
 
 ### Installation:
-=======
+
 The idea of this pipeline + model is to classify emergency text into one of the 26 categories and display the result in a Flask web app.
 
 ### **Motivation:**
 This project was made as part of the Udacity course Data Science. 
-The ideia is to connect ETL pipelines, Text processing and Flask webserver into one project.
+The major motivation was to learn ETL pipelines, Text processing and Flask webserver into one project.
 
 ### **Installation:**
->>>>>>> Stashed changes
+
  - pandas
  - sklearn	
  - joblib
@@ -25,7 +25,7 @@ The ideia is to connect ETL pipelines, Text processing and Flask webserver into 
  - json
  - flask
 
-<<<<<<< Updated upstream
+
 ### File description:
 
 File _ data/process_data.py
@@ -35,7 +35,7 @@ File _models/train_classifier.py
  - Load data from SQLite database, split data into train and validation
  - Builds a text processing and machine learning pipeline
  - Trains a Random Forest model and save the model
-=======
+
 ### **Files description:**
 
 `process_data.py`, a data cleaning pipeline that:
@@ -53,25 +53,10 @@ File _models/train_classifier.py
 -   Trains and tunes a model using GridSearchCV
 -   Outputs results on the test set
 -   Exports the final model as a pickle file
->>>>>>> Stashed changes
  
  File _app/run.py
  - Runs a Flask app that deploys the model
 
-<<<<<<< Updated upstream
-### Summary:
-
-
-### Acknowledgements:
-
-Audacity Data Science Course
-
-### Instructions:
-
-=======
-### **Acknowledgements:**
-
-Thanks to Audacity Data Science Course instructors and revisers.
 
 ### **Instructions:**
 
@@ -90,4 +75,8 @@ Thanks to Audacity Data Science Course instructors and revisers.
 <<<<<<< Updated upstream
 =======
 
->>>>>>> Stashed changes
+![print screen](https://github.com/cafalchio/ETL_pipeline_disaster_response/blob/main/screen.PNG)
+
+### **Acknowledgements:**
+
+Thanks to Audacity Data Science Course instructors and revisers.
