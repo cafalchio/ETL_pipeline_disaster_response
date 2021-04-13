@@ -1,6 +1,14 @@
-# ETL_pipeline_disaster_response
-=======
 # Disaster Response Pipeline Project
+
+### Motivation:
+
+### Installation:
+
+### File description:
+
+### Summary:
+
+### Acknowledgements:
 
 ### Instructions:
 1. Run the following commands in the project's root directory to set up your database and model.
