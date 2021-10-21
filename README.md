@@ -1,18 +1,11 @@
 # Disaster Response Pipeline Project
 
-The idea of this pipeline + model is to classify emergency text into one of the 26 categories and display the result in a Flask web app.
-
-### Motivation:
-This project was made as part of the Udacity course Data Science. The main motivation is learn ETL pipelines and NLP. 
-The Flask app deploy the model on a local server.
-
-### Installation:
-
-The idea of this pipeline + model is to classify emergency text into one of the 26 categories and display the result in a Flask web app.
+The idea of this pipeline + model is to classify emergency text into one of the 26 categories and display the result in a Flask web app. 
 
 ### **Motivation:**
-This project was made as part of the Udacity course Data Science. 
-The major motivation was to learn ETL pipelines, Text processing and Flask webserver into one project.
+
+The major motivation was to learn and practice ETL pipelines and text processing. To complete the project, use a Flask app to deploy the model in a local server.
+
 
 ### **Installation:**
 
@@ -24,17 +17,6 @@ The major motivation was to learn ETL pipelines, Text processing and Flask webse
  - plotly
  - json
  - flask
-
-
-### File description:
-
-File _ data/process_data.py
- - load data from dataframes, clean data and save into SQLite database
-
-File _models/train_classifier.py
- - Load data from SQLite database, split data into train and validation
- - Builds a text processing and machine learning pipeline
- - Trains a Random Forest model and save the model
 
 ### **Files description:**
 
