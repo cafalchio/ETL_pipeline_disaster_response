@@ -57,8 +57,6 @@ The major motivation was to learn and practice ETL pipelines and text processing
 <<<<<<< Updated upstream
 =======
 
+### **A screenshot of the Dashboard**
+
 ![print screen](https://github.com/cafalchio/ETL_pipeline_disaster_response/blob/main/screen.PNG)
-
-### **Acknowledgements:**
-
-Thanks to Audacity Data Science Course instructors and revisers.
