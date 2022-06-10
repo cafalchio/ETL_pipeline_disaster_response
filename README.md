@@ -1,13 +1,14 @@
 # Disaster Response Pipeline Project
 
-The idea of this pipeline + model is to classify emergency text into one of the 26 categories and display the result in a Flask web app. 
+The  pipeline + model can to classify emergency text into one of the 26 categories and display the result in a Flask web app. 
 
 ### **Motivation:**
 
-The major motivation was to learn and practice ETL pipelines and text processing. To complete the project, use a Flask app to deploy the model in a local server.
+The major motivation was to learn and practice ETL pipelines and text processing. 
+To be able to make a user interface, Flask app was created to run in a local server
 
 
-### **Installation:**
+### **Requirements:**
 
  - pandas
  - sklearn	
