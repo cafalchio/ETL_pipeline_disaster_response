@@ -2,6 +2,8 @@
 
 The  pipeline + model can to classify emergency text into one of the 26 categories and display the result in a Flask web app. 
 
+to do: update the model to a BERT related model (maybe Roberta)
+
 ### **Motivation:**
 
 The major motivation was to learn and practice ETL pipelines and text processing. 
